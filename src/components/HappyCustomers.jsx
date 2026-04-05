@@ -27,6 +27,9 @@ export default async function HappyCustomers() {
                 <img src={f.media_url} alt={f.caption} className={styles.media} />
               )}
               <div className={styles.overlay}>
+                <div className={styles.ratingStars}>
+                  {'★'.repeat(f.rating || 5)}{'☆'.repeat(5 - (f.rating || 5))}
+                </div>
                 <p className={styles.caption}>{f.caption}</p>
               </div>
             </div>

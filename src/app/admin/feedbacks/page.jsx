@@ -7,7 +7,8 @@ import styles from '@/components/admin/Admin.module.css';
 const emptyForm = {
   caption: '',
   media_url: '',
-  media_type: 'image'
+  media_type: 'image',
+  rating: 5
 };
 
 export default function AdminFeedbacks() {
@@ -111,7 +112,7 @@ export default function AdminFeedbacks() {
             <tr>
               <th width="120">Media</th>
               <th>Caption</th>
-              <th>Type</th>
+              <th>Rating</th>
               <th width="100">Actions</th>
             </tr>
           </thead>
@@ -137,7 +138,12 @@ export default function AdminFeedbacks() {
                     )}
                   </td>
                   <td>{f.caption}</td>
-                  <td><span className={styles.statusBadge} style={{ background: 'rgba(255,255,255,0.1)' }}>{f.media_type}</span></td>
+                  <td>
+                    <div style={{ color: '#ffc107', fontSize: '0.85rem' }}>
+                      {'★'.repeat(f.rating || 5)}{'☆'.repeat(5 - (f.rating || 5))}
+                    </div>
+                    <span style={{ fontSize: '0.7rem', opacity: 0.5 }}>{f.media_type}</span>
+                  </td>
                   <td>
                     <button className={styles.actionBtn} style={{ color: 'var(--accent-red)' }} onClick={() => handleDelete(f.id)}>Delete</button>
                   </td>
@@ -176,6 +182,21 @@ export default function AdminFeedbacks() {
                 >
                   <option value="image">Photo</option>
                   <option value="video">Video</option>
+                </select>
+              </div>
+
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Customer Rating (Stars)</label>
+                <select 
+                  className={styles.modalInput} 
+                  value={formData.rating} 
+                  onChange={e => setFormData({...formData, rating: Number(e.target.value)})}
+                >
+                  <option value={5}>5 Stars ★★★★★</option>
+                  <option value={4}>4 Stars ★★★★☆</option>
+                  <option value={3}>3 Stars ★★★☆☆</option>
+                  <option value={2}>2 Stars ★★☆☆☆</option>
+                  <option value={1}>1 Star  ★☆☆☆☆</option>
                 </select>
               </div>
 

@@ -58,6 +58,13 @@
   transform: translateY(0);
 }
 
+.ratingStars {
+  color: #ffc107;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
 .caption {
   font-size: 0.9rem;
   color: #fff;
