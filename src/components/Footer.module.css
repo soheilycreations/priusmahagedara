@@ -104,11 +104,29 @@
 }
 
 .bottomBar {
-  padding: 1.5rem 0;
+  padding: 2.5rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  text-align: center;
-  color: #5f6675;
   font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.bottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.developer {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .bottomContent {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 992px) {

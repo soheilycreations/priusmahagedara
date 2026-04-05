@@ -78,8 +78,9 @@ export default function Footer() {
       </div>
       
       <div className={styles.bottomBar}>
-        <div className="container">
+        <div className={`container ${styles.bottomContent}`}>
           <p>&copy; {new Date().getFullYear()} Prius Mahagedara. All Rights Reserved.</p>
+          <p className={styles.developer}>Developed by <span style={{ color: 'var(--accent-red)', fontWeight: 600 }}>Soheily Creations</span></p>
         </div>
       </div>
     </footer>
