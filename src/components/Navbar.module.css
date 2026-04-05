@@ -43,6 +43,7 @@
 
 .links {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -56,28 +57,25 @@
 
 .link:hover {
   opacity: 1;
-  color: var(--accent-red);
-}
-
-.links a:hover {
   color: #fff;
 }
 
 .cta {
-  background: transparent;
-  color: var(--accent-red) !important;
-  border: 1.5px solid var(--accent-red);
-  padding: 8px 18px;
+  background: var(--accent-red);
+  color: #fff !important;
+  border: none;
+  padding: 10px 22px;
   border-radius: 50px;
   font-weight: 700;
   font-size: 0.9rem;
   transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(230, 32, 32, 0.2);
 }
 
 .cta:hover {
-  background: var(--accent-red);
-  color: #fff !important;
-  box-shadow: 0 4px 12px rgba(230, 32, 32, 0.3);
+  transform: translateY(-2px);
+  background: #ce1c1c;
+  box-shadow: 0 6px 20px rgba(230, 32, 32, 0.4);
 }
 
 @media (max-width: 768px) {
