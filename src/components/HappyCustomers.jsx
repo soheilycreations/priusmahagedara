@@ -1,5 +1,6 @@
 import styles from './HappyCustomers.module.css';
 import { supabase } from '@/lib/supabaseClient';
+import HappyCustomersSlider from './HappyCustomersSlider';
 
 export default async function HappyCustomers() {
   const { data: feedbacks, error } = await supabase
@@ -18,23 +19,7 @@ export default async function HappyCustomers() {
           <p className={styles.subtitle}>Moments of joy from families across Sri Lanka joined the Prius Mahagedara family.</p>
         </div>
 
-        <div className={styles.gallery}>
-          {feedbacks.map((f) => (
-            <div key={f.id} className={styles.item}>
-              {f.media_type === 'video' ? (
-                <video src={f.media_url} className={styles.media} controls muted />
-              ) : (
-                <img src={f.media_url} alt={f.caption} className={styles.media} />
-              )}
-              <div className={styles.overlay}>
-                <div className={styles.ratingStars}>
-                  {'★'.repeat(f.rating || 5)}{'☆'.repeat(5 - (f.rating || 5))}
-                </div>
-                <p className={styles.caption}>{f.caption}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <HappyCustomersSlider feedbacks={feedbacks} />
       </div>
     </section>
   );
