@@ -1,0 +1,82 @@
+.page {
+  padding-top: 80px; /* Offset for sticky navbar */
+  min-height: 100vh;
+}
+
+.pageHeader {
+  background-color: rgba(255,255,255,0.02);
+  padding: 4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: #adb5bd;
+  font-size: 1.1rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  padding-bottom: 6rem;
+}
+
+.filterTitle {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1rem;
+}
+
+.filterGroup {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterGroup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.select {
+  appearance: none;
+  background: rgba(15, 17, 21, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+
+.select:focus {
+  border-color: var(--accent-red);
+}
+
+.select option {
+  background: var(--bg-color);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

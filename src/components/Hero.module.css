@@ -1,0 +1,242 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/hero.png'); /* The artifact we generated */
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 17, 21, 0.4) 0%,
+    rgba(15, 17, 21, 0.7) 60%,
+    rgba(15, 17, 21, 1) 100%
+  );
+  z-index: -1;
+}
+
+.heroContent {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.mainSearch {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.highlight {
+  color: var(--accent-red);
+}
+
+.subtitle {
+  font-size: 1.35rem;
+  color: #d1d5db;
+  max-width: 700px;
+  margin: 1.5rem auto 3.5rem auto;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.searchBar {
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  border-radius: 100px;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  width: fit-content;
+}
+
+.sellWidget {
+  width: 350px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: center;
+  animation: fadeUp 0.8s ease 0.5s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  border: 1px solid rgba(230, 32, 32, 0.2);
+}
+
+.sellBadge {
+  background: var(--accent-red);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.sellTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sellDesc {
+  color: #adb5bd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-left: 0.5rem;
+}
+
+.select {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 32px 10px 16px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px top 50%;
+  background-size: 10px auto;
+}
+
+.select:hover, .select:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.select option {
+  background-color: var(--bg-color);
+  color: #fff;
+}
+
+.searchBtn {
+  background-color: var(--accent-red);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  height: 42px;
+}
+
+.searchBtn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 32, 32, 0.3);
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .heroContent {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  
+  .mainSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .searchBar {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .searchBar {
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  
+  .filterGroup {
+    width: 100%;
+  }
+
+  .select {
+    width: 100%;
+  }
+}

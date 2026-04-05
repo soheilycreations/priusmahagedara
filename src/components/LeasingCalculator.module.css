@@ -1,0 +1,106 @@
+.calculator {
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1rem;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.labelRow label {
+  color: var(--text-muted);
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--accent-red);
+  height: 6px;
+  border-radius: 4px;
+  outline: none;
+  -webkit-appearance: none;
+  background: rgba(255,255,255,0.1);
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-red);
+  cursor: pointer;
+}
+
+.rangeLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.select, .numInput {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(15,17,21,0.5);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.select:focus, .numInput:focus {
+  border-color: var(--accent-red);
+}
+
+.result {
+  margin-top: 2rem;
+  background: rgba(230, 32, 32, 0.1);
+  border: 1px solid rgba(230, 32, 32, 0.2);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resultLabel {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.resultVal {
+  color: var(--accent-red);
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 1rem;
+  text-align: center;
+}

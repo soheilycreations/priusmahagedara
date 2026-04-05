@@ -1,0 +1,158 @@
+.page {
+  /* No top padding since hero header merges with navbar */
+  min-height: 100vh;
+}
+
+.heroHeader {
+  height: 60vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(15,17,21,0.2) 0%,
+    rgba(15,17,21,0.8) 70%,
+    var(--bg-color) 100%
+  );
+  z-index: 1;
+}
+
+.headerContent {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 4rem;
+  width: 100%;
+}
+
+.backLink {
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: #fff;
+}
+
+.badge {
+  background: rgba(230, 32, 32, 0.2);
+  color: var(--accent-red);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.contentLayout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+}
+
+.sectionBlock {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.specItem {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.specLabel {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.specValue {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.desc {
+  color: #adb5bd;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.waBtn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #25d366;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.waBtn:hover {
+  background-color: #1ebe57;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+@media (max-width: 992px) {
+  .contentLayout {
+    grid-template-columns: 1fr;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+}

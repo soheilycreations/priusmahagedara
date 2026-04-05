@@ -1,0 +1,142 @@
+.section {
+  padding: 8rem 0;
+  background: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 20%, rgba(230, 32, 32, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.desc {
+  font-size: 1.1rem;
+  color: #adb5bd;
+  line-height: 1.7;
+}
+
+.stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statItem strong {
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 800;
+}
+
+.statItem span {
+  color: #6c757d;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.calcCard {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.calcGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.calcGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8b92a5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.calcGroup input[type="number"], .calcGroup select {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.calcGroup input[type="number"]:focus, .calcGroup select:focus {
+  border-color: var(--accent-red);
+}
+
+.calcGroup input[type="range"] {
+  accent-color: var(--accent-red);
+}
+
+.result {
+  background: rgba(230, 32, 32, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(230, 32, 32, 0.2);
+}
+
+.result span {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.payment {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent-red);
+}
+
+@media (max-width: 992px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .stats {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .calcCard {
+    padding: 2rem;
+  }
+}
