@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import LeasingCalculator from '@/components/LeasingCalculator';
+import TestDriveAction from '@/components/TestDriveAction';
 import styles from './vdp.module.css';
 import { supabase } from '@/lib/supabaseClient';
 
@@ -155,9 +156,10 @@ export default async function VehicleDetailPage(props) {
         <aside className={styles.sidebar}>
           <div className="glass-panel" style={{ padding: '2rem', marginBottom: '2rem' }}>
             <h3 style={{ marginBottom: '1.5rem', fontSize: '1.2rem' }}>Contact Sales</h3>
-            <button className="btn-primary" style={{ width: '100%', marginBottom: '1rem' }}>
-              Schedule Test Drive
-            </button>
+            <TestDriveAction 
+              vehicleId={car.id} 
+              vehicleName={`${car.brand} ${car.model}`} 
+            />
             <a href="https://wa.me/94777198000" target="_blank" rel="noopener noreferrer" className={styles.waBtn}>
                WhatsApp Inquiry
             </a>
