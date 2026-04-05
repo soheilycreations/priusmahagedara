@@ -2,6 +2,8 @@ import CarCard from '@/components/CarCard';
 import styles from './inventory.module.css';
 import { supabase } from '@/lib/supabaseClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Inventory | Prius Mahagedara',
   description: 'Browse our extensive stock of high-end vehicles.',

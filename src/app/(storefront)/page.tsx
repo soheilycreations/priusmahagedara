@@ -7,6 +7,8 @@ import Services from '@/components/Services';
 import HomeLeasing from '@/components/HomeLeasing';
 import BrandMarquee from '@/components/BrandMarquee';
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   return (
     <main>
