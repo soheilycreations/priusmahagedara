@@ -60,39 +60,71 @@ export default async function VehicleDetailPage(props) {
             <h2 className={styles.sectionTitle}>Overview</h2>
             
             <div className={styles.specsGrid}>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Condition</span>
-                <span className={styles.specValue}>{car.condition || 'N/A'}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Body Type</span>
-                <span className={styles.specValue}>{car.body_type || 'N/A'}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Mileage</span>
-                <span className={styles.specValue}>{car.mileage} km</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Transmission</span>
-                <span className={styles.specValue}>{car.transmission}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Fuel Type</span>
-                <span className={styles.specValue}>{car.fuel}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Engine</span>
-                <span className={styles.specValue}>{car.engine}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Color</span>
-                <span className={styles.specValue}>{car.color || 'N/A'}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Seats</span>
-                <span className={styles.specValue}>{car.seats || 'N/A'}</span>
-              </div>
+              {car.condition && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Condition</span>
+                  <span className={styles.specValue}>{car.condition}</span>
+                </div>
+              )}
+              {car.body_type && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Body Type</span>
+                  <span className={styles.specValue}>{car.body_type}</span>
+                </div>
+              )}
+              {car.mileage && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Mileage</span>
+                  <span className={styles.specValue}>{car.mileage} km</span>
+                </div>
+              )}
+              {car.transmission && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Transmission</span>
+                  <span className={styles.specValue}>{car.transmission}</span>
+                </div>
+              )}
+              {car.fuel && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Fuel Type</span>
+                  <span className={styles.specValue}>{car.fuel}</span>
+                </div>
+              )}
+              {car.engine && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Engine</span>
+                  <span className={styles.specValue}>{car.engine}</span>
+                </div>
+              )}
+              {car.color && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Color</span>
+                  <span className={styles.specValue}>{car.color}</span>
+                </div>
+              )}
+              {car.seats && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Seats</span>
+                  <span className={styles.specValue}>{car.seats}</span>
+                </div>
+              )}
             </div>
+
+            {car.features && car.features.length > 0 && (
+              <div className={styles.featuresSection}>
+                <h3 className={styles.subTitle}>Key Highlights</h3>
+                <div className={styles.featuresList}>
+                  {car.features.map((feature, i) => (
+                    <div key={i} className={styles.featureItem}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             
             {car.gallery && car.gallery.length > 0 && (
               <div className={styles.gallerySection}>

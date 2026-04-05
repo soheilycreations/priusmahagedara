@@ -9,7 +9,8 @@ const emptyForm = {
   transmission: 'Automatic', fuel: 'Petrol', color: '', 
   engine: '', seats: '', status: 'Available', image: null,
   condition: 'Reconditioned', body_type: 'Hatchback', description: '',
-  gallery: []
+  gallery: [],
+  features: []
 };
 
 export default function AdminInventory() {
@@ -243,11 +244,11 @@ export default function AdminInventory() {
 
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Brand</label>
-                <input required type="text" className={styles.modalInput} value={formData.brand} onChange={e => setFormData({...formData, brand: e.target.value})} />
+                <input type="text" className={styles.modalInput} value={formData.brand} onChange={e => setFormData({...formData, brand: e.target.value})} />
               </div>
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Model</label>
-                <input required type="text" className={styles.modalInput} value={formData.model} onChange={e => setFormData({...formData, model: e.target.value})} />
+                <input type="text" className={styles.modalInput} value={formData.model} onChange={e => setFormData({...formData, model: e.target.value})} />
               </div>
 
               <div>
@@ -256,7 +257,7 @@ export default function AdminInventory() {
               </div>
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Year of Manufacture</label>
-                <input required type="number" className={styles.modalInput} value={formData.year_of_manufacture} onChange={e => setFormData({...formData, year_of_manufacture: e.target.value})} />
+                <input type="number" className={styles.modalInput} value={formData.year_of_manufacture} onChange={e => setFormData({...formData, year_of_manufacture: e.target.value})} />
               </div>
 
               <div>
@@ -299,16 +300,16 @@ export default function AdminInventory() {
 
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Engine Capacity (cc)</label>
-                <input required type="text" className={styles.modalInput} value={formData.engine} onChange={e => setFormData({...formData, engine: e.target.value})} />
+                <input type="text" className={styles.modalInput} value={formData.engine} onChange={e => setFormData({...formData, engine: e.target.value})} />
               </div>
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Mileage (km)</label>
-                <input required type="text" className={styles.modalInput} value={formData.mileage} onChange={e => setFormData({...formData, mileage: e.target.value})} />
+                <input type="text" className={styles.modalInput} value={formData.mileage} onChange={e => setFormData({...formData, mileage: e.target.value})} />
               </div>
 
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Price (LKR)</label>
-                <input required type="number" className={styles.modalInput} value={formData.price} onChange={e => setFormData({...formData, price: e.target.value})} />
+                <input type="number" className={styles.modalInput} value={formData.price} onChange={e => setFormData({...formData, price: e.target.value})} />
               </div>
               <div className={styles.fullWidth}>
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Main Card Image</label>
@@ -322,6 +323,43 @@ export default function AdminInventory() {
                   {formData.gallery?.length || 0} images in gallery. 
                   {formData.gallery?.length > 0 && <button type="button" onClick={() => setFormData({...formData, gallery: []})} style={{ color: 'var(--accent-red)', marginLeft: '10px', fontSize: '0.75rem', background: 'none', border: 'none', cursor: 'pointer' }}>Clear gallery</button>}
                 </div>
+              </div>
+
+              <div className={styles.fullWidth}>
+                <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Key Highlights / Features</label>
+                {(formData.features || []).map((feature, index) => (
+                  <div key={index} style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                    <input 
+                      type="text" 
+                      className={styles.modalInput} 
+                      value={feature || ''} 
+                      onChange={(e) => {
+                        const newFeatures = [...formData.features];
+                        newFeatures[index] = e.target.value;
+                        setFormData({...formData, features: newFeatures});
+                      }}
+                      placeholder="e.g. Panoramic Sunroof"
+                    />
+                    <button 
+                      type="button" 
+                      onClick={() => {
+                        const newFeatures = formData.features.filter((_, i) => i !== index);
+                        setFormData({...formData, features: newFeatures});
+                      }}
+                      style={{ color: 'var(--accent-red)', background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.8rem' }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+                <button 
+                  type="button" 
+                  className={styles.actionBtn} 
+                  style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}
+                  onClick={() => setFormData({...formData, features: [...(formData.features || []), '']})}
+                >
+                  + Add Key Feature
+                </button>
               </div>
 
               <div className={styles.fullWidth}>

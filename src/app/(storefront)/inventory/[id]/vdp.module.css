@@ -147,6 +147,44 @@
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
+.featuresSection {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.subTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.featuresList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.featureItem svg {
+  color: #25d366;
+  flex-shrink: 0;
+}
+
 .gallerySection {
   margin-bottom: 4rem;
 }
