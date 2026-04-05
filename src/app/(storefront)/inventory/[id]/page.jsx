@@ -94,6 +94,19 @@ export default async function VehicleDetailPage(props) {
               </div>
             </div>
             
+            {car.gallery && car.gallery.length > 0 && (
+              <div className={styles.gallerySection}>
+                <h2 className={styles.sectionTitle}>Gallery</h2>
+                <div className={styles.galleryGrid}>
+                  {car.gallery.map((img, i) => (
+                    <div key={i} className={styles.galleryItem}>
+                      <img src={img} alt={`Gallery ${i}`} className={styles.galleryImg} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className={styles.desc}>
               {car.description ? (
                 <div style={{ whiteSpace: 'pre-line' }}>{car.description}</div>

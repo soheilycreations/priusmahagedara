@@ -8,7 +8,8 @@ const emptyForm = {
   brand: '', model: '', trim: '', year_of_manufacture: '', price: '', mileage: '', 
   transmission: 'Automatic', fuel: 'Petrol', color: '', 
   engine: '', seats: '', status: 'Available', image: null,
-  condition: 'Reconditioned', body_type: 'Hatchback', description: ''
+  condition: 'Reconditioned', body_type: 'Hatchback', description: '',
+  gallery: []
 };
 
 export default function AdminInventory() {
@@ -87,6 +88,34 @@ export default function AdminInventory() {
         .getPublicUrl(filePath);
 
       setFormData({ ...formData, image: publicUrl });
+      setLoading(false);
+    }
+  };
+
+  const handleGalleryChange = async (e) => {
+    const files = Array.from(e.target.files);
+    if (files.length > 0) {
+      setLoading(true);
+      const newGallery = [...formData.gallery];
+
+      for (const file of files) {
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Math.random()}.${fileExt}`;
+        const filePath = `vehicle-gallery/${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('vehicle-images')
+          .upload(filePath, file);
+
+        if (!uploadError) {
+          const { data: { publicUrl } } = supabase.storage
+            .from('vehicle-images')
+            .getPublicUrl(filePath);
+          newGallery.push(publicUrl);
+        }
+      }
+
+      setFormData({ ...formData, gallery: newGallery });
       setLoading(false);
     }
   };
@@ -281,9 +310,18 @@ export default function AdminInventory() {
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Price (LKR)</label>
                 <input required type="number" className={styles.modalInput} value={formData.price} onChange={e => setFormData({...formData, price: e.target.value})} />
               </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Seats</label>
-                <input type="number" className={styles.modalInput} value={formData.seats || ''} onChange={e => setFormData({...formData, seats: e.target.value})} />
+              <div className={styles.fullWidth}>
+                <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Main Card Image</label>
+                <input type="file" onChange={handleImageChange} className={styles.fileInput} />
+              </div>
+
+              <div className={styles.fullWidth}>
+                <label style={{ display: 'block', marginBottom: '0.5rem', color: '#8b92a5' }}>Gallery Images (Additional Photos)</label>
+                <input type="file" multiple onChange={handleGalleryChange} className={styles.fileInput} />
+                <div style={{ marginTop: '0.5rem', color: '#8b92a5', fontSize: '0.85rem' }}>
+                  {formData.gallery?.length || 0} images in gallery. 
+                  {formData.gallery?.length > 0 && <button type="button" onClick={() => setFormData({...formData, gallery: []})} style={{ color: 'var(--accent-red)', marginLeft: '10px', fontSize: '0.75rem', background: 'none', border: 'none', cursor: 'pointer' }}>Clear gallery</button>}
+                </div>
               </div>
 
               <div className={styles.fullWidth}>
