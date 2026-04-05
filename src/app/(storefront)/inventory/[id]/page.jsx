@@ -4,6 +4,8 @@ import TestDriveAction from '@/components/TestDriveAction';
 import styles from './vdp.module.css';
 import { supabase } from '@/lib/supabaseClient';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }) {
   const p = await params;
   const { data: car } = await supabase
